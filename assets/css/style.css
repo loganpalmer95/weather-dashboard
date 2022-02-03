@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+}
+
 :root {
     --primary: #b4e7ff;
     --secondary: #629dad;
@@ -7,15 +12,10 @@
     --border-radius: .3rem;
   }
   
-  * {
-    box-sizing: border-box;
-  }
-  
   body {
     background-color: var(--primary);
     margin: 0;
     padding: 0;
-    font-family: "IBM Plex Sans", sans-serif;
     color: var(--dark);
     line-height: 1.5;
     font-size: 16px;
