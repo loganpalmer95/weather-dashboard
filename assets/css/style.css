@@ -1,9 +1,9 @@
 :root {
-    --primary: #ccd5da;
-    --secondary: #9caaae;
-    --tertiary: #788185;
+    --primary: #b4e7ff;
+    --secondary: #629dad;
+    --tertiary: #426879;
     --light-dark: #6f6866;
-    --dark: #2e2f3a;
+    --dark: #305d6e;
     --border-radius: .3rem;
   }
   
@@ -132,7 +132,7 @@
   .status-icon {
     padding: 2px 5px;
     margin: 0 5px;
-    background-color: rgba(255,255,255, 1);
+    background-color: white;
     border-radius: var(--border-radius);
   }
   #weather-status img{
@@ -140,7 +140,7 @@
   }
   
   .icon-danger {
-    color: rgb(255, 70, 70);
+    color: red;
   }
   
   .icon-success {
@@ -159,7 +159,7 @@
   }
   .uv-index-red span {
     padding: 1px 5px;
-    background-color: rgb(226, 59, 59);
+    background-color: red;
     border-radius: 5px;
   }
   
@@ -186,7 +186,7 @@
     visibility: hidden;
   }
   .day {
-    background-color: cornflowerblue;
+    background-color: rgb(46, 108, 150);
     border-radius: 5px;
     margin-bottom: 10px;
     font-size: 16px;
