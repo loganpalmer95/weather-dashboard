@@ -15,7 +15,6 @@ var searchHistoryArray = []
 
 var formSubmitHandler = function (event) {
     event.preventDefault();
-
     var cityname = cityNameInputEl.value.trim();
 
     if (cityname) {
@@ -33,6 +32,7 @@ var formSubmitHandler = function (event) {
     else {
         alert("Please enter a City name");
     }
+
 }
 
 var getWeatherInfo = function (cityname) {
@@ -67,7 +67,6 @@ var getWeatherInfo = function (cityname) {
             return response.json();
         })
         .then(function (response) {
-            console.log(response)
             displayWeather(response);
 
         });
@@ -78,6 +77,7 @@ var displayWeather = function (weather) {
         weatherContainerEl.textContent = "No weather data found.";
         return;
     }
+
     var temperature = document.createElement('p');
     temperature.id = "temperature";
     temperature.innerHTML = "<strong>Temperature:</strong> " + weather.current.temp.toFixed(1) + "°F";
@@ -107,23 +107,24 @@ var displayWeather = function (weather) {
     }
     uvIndex.innerHTML = "<strong>UV Index:</strong> <span>" + uvIndexValue + "</span>";
     currentWeatherEl.appendChild(uvIndex);
-}
 
-var forecastArray = weather.daily;
+    var forecastArray = weather.daily;
 
-for (let i = 0; i < forecastArray.length - 3; i++) {
-    var date = (today.getMonth() + 1) + '/' + (today.getDate() + i + 1) + '/' + today.getFullYear();
-    var weatherIcon = forecastArray[i].weather[0].icon;
-    var weatherDescription = forecastArray[i].weather[0].description;
-    var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />"
-    var dayEl = document.createElement("div");
-    dayEl.className = "day";
-    dayEl.innerHTML = "<p><strong>" + date + "</strong></p>" +
-        "<p>" + weatherIconLink + "</p>" +
-        "<p><strong>Temp:</strong> " + forecastArray[i].temp.day.toFixed(1) + "°F</p>" +
-        "<p><strong>Humidity:</strong> " + forecastArray[i].humidity + "%</p>"
+    for (let i = 0; i < forecastArray.length - 3; i++) {
+        var date = (today.getMonth() + 1) + '/' + (today.getDate() + i + 1) + '/' + today.getFullYear();
+        var weatherIcon = forecastArray[i].weather[0].icon;
+        var weatherDescription = forecastArray[i].weather[0].description;
+        var weatherIconLink = "<img src='http://openweathermap.org/img/wn/" + weatherIcon + "@2x.png' alt='" + weatherDescription + "' title='" + weatherDescription + "'  />"
+        var dayEl = document.createElement("div");
+        dayEl.className = "day";
+        dayEl.innerHTML = "<p><strong>" + date + "</strong></p>" +
+            "<p>" + weatherIconLink + "</p>" +
+            "<p><strong>Temp:</strong> " + forecastArray[i].temp.day.toFixed(1) + "°F</p>" +
+            "<p><strong>Humidity:</strong> " + forecastArray[i].humidity + "%</p>"
 
-    fiveDayEl.appendChild(dayEl);
+        fiveDayEl.appendChild(dayEl);
+
+    }
 
 }
 
